@@ -1,0 +1,549 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated to nature-inspired eco theme with greens and blues */
+  --background: oklch(0.98 0.01 120);
+  --foreground: oklch(0.15 0.02 140);
+  --card: oklch(0.99 0.005 120);
+  --card-foreground: oklch(0.15 0.02 140);
+  --popover: oklch(0.99 0.005 120);
+  --popover-foreground: oklch(0.15 0.02 140);
+  --primary: oklch(0.45 0.15 140);
+  --primary-foreground: oklch(0.98 0.01 120);
+  --secondary: oklch(0.92 0.03 120);
+  --secondary-foreground: oklch(0.25 0.02 140);
+  --muted: oklch(0.94 0.02 120);
+  --muted-foreground: oklch(0.55 0.02 140);
+  --accent: oklch(0.65 0.12 180);
+  --accent-foreground: oklch(0.98 0.01 120);
+  --destructive: oklch(0.55 0.18 25);
+  --destructive-foreground: oklch(0.98 0.01 120);
+  --border: oklch(0.88 0.02 120);
+  --input: oklch(0.92 0.02 120);
+  --ring: oklch(0.45 0.15 140);
+  --chart-1: oklch(0.55 0.15 140);
+  --chart-2: oklch(0.65 0.12 180);
+  --chart-3: oklch(0.45 0.18 90);
+  --chart-4: oklch(0.75 0.1 200);
+  --chart-5: oklch(0.6 0.14 160);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.96 0.02 120);
+  --sidebar-foreground: oklch(0.15 0.02 140);
+  --sidebar-primary: oklch(0.45 0.15 140);
+  --sidebar-primary-foreground: oklch(0.98 0.01 120);
+  --sidebar-accent: oklch(0.92 0.03 120);
+  --sidebar-accent-foreground: oklch(0.25 0.02 140);
+  --sidebar-border: oklch(0.88 0.02 120);
+  --sidebar-ring: oklch(0.45 0.15 140);
+}
+
+.dark {
+  /* Dark mode with deep forest greens and earth tones */
+  --background: oklch(0.08 0.02 140);
+  --foreground: oklch(0.92 0.02 120);
+  --card: oklch(0.1 0.02 140);
+  --card-foreground: oklch(0.92 0.02 120);
+  --popover: oklch(0.1 0.02 140);
+  --popover-foreground: oklch(0.92 0.02 120);
+  --primary: oklch(0.65 0.15 140);
+  --primary-foreground: oklch(0.08 0.02 140);
+  --secondary: oklch(0.18 0.03 140);
+  --secondary-foreground: oklch(0.92 0.02 120);
+  --muted: oklch(0.15 0.02 140);
+  --muted-foreground: oklch(0.65 0.02 140);
+  --accent: oklch(0.55 0.12 180);
+  --accent-foreground: oklch(0.08 0.02 140);
+  --destructive: oklch(0.45 0.18 25);
+  --destructive-foreground: oklch(0.92 0.02 120);
+  --border: oklch(0.2 0.02 140);
+  --input: oklch(0.18 0.02 140);
+  --ring: oklch(0.65 0.15 140);
+  --chart-1: oklch(0.65 0.15 140);
+  --chart-2: oklch(0.55 0.12 180);
+  --chart-3: oklch(0.55 0.18 90);
+  --chart-4: oklch(0.45 0.1 200);
+  --chart-5: oklch(0.7 0.14 160);
+  --sidebar: oklch(0.12 0.02 140);
+  --sidebar-foreground: oklch(0.92 0.02 120);
+  --sidebar-primary: oklch(0.65 0.15 140);
+  --sidebar-primary-foreground: oklch(0.08 0.02 140);
+  --sidebar-accent: oklch(0.18 0.03 140);
+  --sidebar-accent-foreground: oklch(0.92 0.02 120);
+  --sidebar-border: oklch(0.2 0.02 140);
+  --sidebar-ring: oklch(0.65 0.15 140);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Added mobile-specific optimizations */
+  /* Improve touch targets on mobile */
+  @media (max-width: 768px) {
+    button,
+    [role="button"],
+    input[type="button"],
+    input[type="submit"] {
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    /* Better text readability on mobile */
+    body {
+      font-size: 16px; /* Prevents zoom on iOS */
+      line-height: 1.5;
+    }
+
+    /* Optimize scrolling on mobile */
+    * {
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Prevent horizontal scroll */
+    html,
+    body {
+      overflow-x: hidden;
+    }
+  }
+
+  /* Added focus styles for better accessibility */
+  *:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  /* Added smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Added custom animations for eco-themed interactions */
+@keyframes leaf-float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-eco {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+  }
+}
+
+/* Added new animations for student dashboard interactions */
+@keyframes slide-right {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Added mobile-specific animations */
+@keyframes mobile-slide-up {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes mobile-fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Added advanced gamification animations */
+@keyframes level-up-celebration {
+  0% {
+    transform: scale(1) rotate(0deg);
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+  }
+  25% {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 0 10px rgba(255, 215, 0, 0.5);
+  }
+  50% {
+    transform: scale(1.2) rotate(-5deg);
+    box-shadow: 0 0 0 20px rgba(255, 215, 0, 0.3);
+  }
+  75% {
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: 0 0 0 30px rgba(255, 215, 0, 0.1);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    box-shadow: 0 0 0 40px rgba(255, 215, 0, 0);
+  }
+}
+
+@keyframes achievement-unlock {
+  0% {
+    transform: scale(0) rotate(-180deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.3) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes points-counter {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-40px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes badge-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes progress-fill {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: var(--progress-width);
+  }
+}
+
+@keyframes streak-fire {
+  0%,
+  100% {
+    transform: scale(1) rotate(-2deg);
+    filter: hue-rotate(0deg);
+  }
+  25% {
+    transform: scale(1.05) rotate(2deg);
+    filter: hue-rotate(10deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(-1deg);
+    filter: hue-rotate(20deg);
+  }
+  75% {
+    transform: scale(1.05) rotate(1deg);
+    filter: hue-rotate(10deg);
+  }
+}
+
+@keyframes notification-bounce {
+  0% {
+    transform: translateX(100%) scale(0.8);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(-10px) scale(1.1);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(5px) scale(0.95);
+  }
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes leaderboard-climb {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-5px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes eco-sparkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+@keyframes challenge-complete {
+  0% {
+    transform: scale(1);
+    background-color: rgba(34, 197, 94, 0.1);
+  }
+  50% {
+    transform: scale(1.05);
+    background-color: rgba(34, 197, 94, 0.3);
+  }
+  100% {
+    transform: scale(1);
+    background-color: rgba(34, 197, 94, 0.2);
+  }
+}
+
+.animate-leaf-float {
+  animation: leaf-float 3s ease-in-out infinite;
+}
+
+.animate-grow {
+  animation: grow 0.5s ease-out;
+}
+
+.animate-pulse-eco {
+  animation: pulse-eco 2s infinite;
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.6s ease-out;
+}
+
+.animate-slide-right {
+  animation: slide-right 3s ease-out forwards;
+}
+
+/* Added mobile animation classes */
+.animate-mobile-slide-up {
+  animation: mobile-slide-up 0.3s ease-out;
+}
+
+.animate-mobile-fade-in {
+  animation: mobile-fade-in 0.2s ease-out;
+}
+
+/* Added advanced gamification animation classes */
+.animate-level-up {
+  animation: level-up-celebration 2s ease-out;
+}
+
+.animate-achievement-unlock {
+  animation: achievement-unlock 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.animate-points-counter {
+  animation: points-counter 1.5s ease-out forwards;
+}
+
+.animate-badge-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background-size: 200% 100%;
+  animation: badge-shimmer 2s infinite;
+}
+
+.animate-progress-fill {
+  animation: progress-fill 1.5s ease-out forwards;
+}
+
+.animate-streak-fire {
+  animation: streak-fire 2s ease-in-out infinite;
+}
+
+.animate-notification-bounce {
+  animation: notification-bounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.animate-leaderboard-climb {
+  animation: leaderboard-climb 0.5s ease-out;
+}
+
+.animate-eco-sparkle {
+  animation: eco-sparkle 1.5s ease-in-out infinite;
+}
+
+.animate-challenge-complete {
+  animation: challenge-complete 0.8s ease-out;
+}
+
+/* Added responsive utility classes */
+.touch-friendly {
+  min-height: 44px;
+  min-width: 44px;
+  touch-action: manipulation;
+}
+
+.mobile-padding {
+  @media (max-width: 768px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+.mobile-text {
+  @media (max-width: 768px) {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+}
+
+/* Added safe area support for mobile devices */
+@supports (padding: max(0px)) {
+  .safe-area-inset {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+    padding-top: max(1rem, env(safe-area-inset-top));
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* Added particle effects for gamification */
+.particle-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.particle.active {
+  animation: eco-sparkle 1.5s ease-out forwards;
+}
+
+/* Added hover effects for interactive elements */
+.gamification-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.gamification-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-item:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease-out;
+}
+
+.badge-item {
+  transition: all 0.3s ease;
+}
+
+.badge-item:hover {
+  transform: rotate(5deg) scale(1.1);
+  filter: brightness(1.2);
+}
